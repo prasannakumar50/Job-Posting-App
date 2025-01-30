@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import JobDetails from './pages/JobDetails';
+import Post from './pages/Post';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+       <Route path="/" element={<App />} />
+       <Route path="/jobs/id/:jobId" element={<JobDetails />} />
+       <Route path="/jobs/post" element={<Post />} />
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
